@@ -10,5 +10,5 @@ app.use("/", generalRoutes);
 app.use("/auth", authRoutes);
 
 app.listen(5001, () => {
-  console.log("Sunucu 5000 portunda çalışıyor.");
+  console.log("Sunucu 5001 portunda çalışıyor.");
 });

@@ -6,9 +6,13 @@ const authenticated = express.Router();
 
 // Middleware: Kimlik doğrulama
 authenticated.use((req, res, next) => {
-  const token = req.headers.authorization;
+  const authHeader = req.headers.authorization;
 
-  if (!token) return res.status(403).json({ message: "Token missing" });
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(403).json({ message: "Token missing or invalid format" });
+  }
+
+  const token = authHeader.substring(7); // "Bearer " prefix'ini kaldır
 
   try {
     const decoded = jwt.verify(token, "access");
