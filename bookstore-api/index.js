@@ -9,6 +9,6 @@ app.use(bodyParser.json());
 app.use("/", generalRoutes);
 app.use("/auth", authRoutes);
 
-app.listen(5000, () => {
+app.listen(5001, () => {
   console.log("Sunucu 5000 portunda çalışıyor.");
 });
